@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Moxart | Currency
+    Moxart | All Currencies
 {% endblock %}
 
 {% block hero %}
@@ -11,18 +11,10 @@ Moxart | Currency
         <p class="lead">All prices are in Iranian Rial</p>
         <p>Access IRR exchange rates for 100+ currencies</p>
         <p class="lead">
-          <a class="btn btn-warning btn-lg" href="{{ url_for('bp_api.api_currency') }}" target="_blank" role="button"><strong><i class="fas fa-poll"></i> Get Free API</strong></a>
+            <a class="btn btn-warning btn-lg" href="{{ url_for('bp_api.api_currency') }}" target="_blank" role="button"><strong><i class="fas fa-poll"></i> Get Free API</strong></a>
         </p>
       </div>
     </div>
-{% endblock %}
-
-{% block hero_title %}
-Iranian Rial Exchange Rates.
-{% endblock %}
-
-{% block hero_subtitle %}
-All prices are in Iranian <strong>Toman</strong>
 {% endblock %}
 
 {% block currency %}
@@ -56,15 +48,6 @@ All prices are in Iranian <strong>Toman</strong>
             {% endfor %}
             </tbody>
         </table>
-
-        <div class="container more-currency">
-          <div class="row">
-            <div class="col text-center">
-              <a class=" btn btn-warning btn-more-currency" href="{{ url_for('bp.currency_all') }}"><i class="fas fa-undo"></i> More Currencies</a>
-            </div>
-          </div>
-        </div>
-
 
     </div>
 {% endif %}

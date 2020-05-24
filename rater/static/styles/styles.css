@@ -18,6 +18,10 @@ table.table-currency {
   color: #777 !important;
 }
 
+table.table-currency td.id {
+  font-weight: 600;
+}
+
 table.table-currency td.state {
   font-weight: 600;
   color: #fff;
@@ -35,6 +39,10 @@ table.table-currency thead {
 table.table-currency th,
 table.table-currency td {
   text-transform: uppercase;
-  text-align: center !important;
   border: none !important;
+}
+
+
+div.more-currency {
+  padding-top: 1.75rem;
 }

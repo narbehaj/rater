@@ -16,16 +16,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    <div class="jumbotron hero-currency bg-dark text-light text-center jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4"><i class="fas fa-coins"></i> Iranian Rial Exchange Rates</h1>
-        <p class="lead">All prices are in Iranian Toman</p>
-        <p>Access IRR exchange rates for 100+ currencies</p>
-        <p class="lead">
-          <a class="btn btn-warning btn-lg" href="{{ url_for('bp_api.api_currency') }}" target="_blank" role="button"><strong>Get Free API</strong></a>
-        </p>
-      </div>
-    </div>
+    {% block hero %} {% endblock %}
 
     <div class="container">
       {% block currency %} {% endblock %}
