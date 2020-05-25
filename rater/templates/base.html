@@ -11,12 +11,23 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    {% block hero %} {% endblock %}
+    <div class="jumbotron hero-currency bg-dark text-light text-center jumbotron-fluid">
+      <div class="container">
+          <img src="{{ url_for('static', filename='images/logo.png') }}" class="img-fluid moxart-rater-logo" alt="Iranian Currency Rater">
+        <h1 class="display-4">
+            Iranian Rial <br> Exchange Rates
+        </h1>
+        <p class="description">Access IRR exchange rates for 100+ currencies</p>
+        <p class="buttons">
+          <a class="btn btn-warning btn-lg btn-api moxart-button" href="{{ url_for('bp_api.api_currency') }}" target="_blank" role="button">Get Free API</a>
+        </p>
+      </div>
+    </div>
 
     <div class="container">
       {% block currency %} {% endblock %}
