@@ -17,7 +17,10 @@ def currency_all():
     return render_template('currency/currency-all.html', currency=data)
 
 
-@bp_currency.route('/currency/update-database', methods=['GET'])
+@bp_currency.route('/currency/update-database', methods=['POST'])
 def update_database():
-    if save_to_database():
-        return jsonify(message='database has been updated successfully')
+    data = request.get_json()
+    if data['token'] == 'MY_TOKEN':
+        if save_to_database():
+            return jsonify(message='database has been updated successfully')
+
