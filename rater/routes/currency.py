@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify, make_response
+from flask import Blueprint, render_template, jsonify, make_response, request
 from rater._helpers import get_currencies, get_coins, fetch_currency, save_to_database
 
 bp_currency = Blueprint('bp_currency', __name__, url_prefix='/rates')
@@ -17,7 +17,9 @@ def currency_all():
     return render_template('currency/currency-all.html', currency=data)
 
 
-@bp_currency.route('/currency/update-database', methods=['GET'])
+@bp_currency.route('/currency/update-database', methods=['POST'])
 def update_database():
-    if save_to_database():
-        return jsonify(message='database has been updated successfully')
+    data = request.get_json()
+    if data['token'] == 'MY_TOKEN':
+        if save_to_database():
+            return jsonify(message='database has been updated successfully')
