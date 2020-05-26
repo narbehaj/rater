@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Moxart | Coin
+{% endblock %}
+
+{% block main %}
+    <div>
+        <img src="{{ url_for('static', filename='images/screenshots/curl-api-currencies.png') }}" class="img-fluid rounded mx-auto d-block api-currencies" alt="Iranian Currencies API">
+    </div>
+    <br>
+    <div>
+        <img src="{{ url_for('static', filename='images/screenshots/curl-api-coins.png') }}" class="img-fluid rounded mx-auto d-block api-coins" alt="Iranian Coins API">
+    </div>
+{% endblock %}

@@ -1,10 +1,10 @@
 from flask import Blueprint, request, jsonify
 from rater.models.currency import Currency, currency_schema, currencies_schema
 
-bp_api = Blueprint('bp_api', __name__, url_prefix='/api')
+bp_currency_api = Blueprint('bp_currency_api', __name__, url_prefix='/rates/api')
 
 
-@bp_api.route('/currency', methods=['GET'])
+@bp_currency_api.route('/currency', methods=['GET'])
 def api_currency():
     if request.method == 'GET':
         data = []
@@ -14,44 +14,46 @@ def api_currency():
 
         for item in dump:
             data.append({
-                "titles": [{
-                    "alpha2": item['alpha2_code'],
-                    "alpha3": item['alpha3_code'],
-                    "arabic": item['arabic_code']
+                "title": item['title'],
+                "codes": [{
+                    "alpha2": item['alpha2'],
+                    "alpha3": item['alpha3']
                 }],
                 "country": item['country'],
                 "prices": [{
-                    "current": item['live_price'],
+                    "live": item['price'],
                     "change": item['change'],
-                    "min": item['min_price'],
-                    "max": item['max_price']
+                    "min": item['min'],
+                    "max": item['max']
                 }],
                 "time": item['updated_at']
             })
 
         return jsonify(message="success", status=200, data=data)
+
     return jsonify(message="Unsupported Method")
 
 
-@bp_api.route('/currency/<string:code>')
+@bp_currency_api.route('/currency/<string:code>')
 def api_currency_by(code):
     if request.method == 'GET':
         data = []
 
-        currency = Currency.query.filter_by(alpha3_code=code.upper()).first()
+        currency = Currency.query.filter_by(alpha3=code.upper()).first()
         dump = currency_schema.dump(currency)
 
         data.append({
-            "titles": [{
-                "alpha2": dump['alpha2_code'],
-                "alpha3": dump['alpha3_code'],
-                "arabic": dump['arabic_code']
+            "title": dump['title'],
+            "codes": [{
+                "alpha2": dump['alpha2'],
+                "alpha3": dump['alpha3']
             }],
             "country": dump['country'],
             "prices": [{
+                "live": dump['price'],
                 "change": dump['change'],
-                "min": dump['min_price'],
-                "max": dump['max_price']
+                "min": dump['min'],
+                "max": dump['max']
             }],
             "time": dump['updated_at']
         })

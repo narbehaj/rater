@@ -23,14 +23,22 @@ def create_app():
     ma.init_app(app)
     htmlmin.init_app(app)
 
+    from rater.routes import main
     from rater.routes import currency
+    from rater.routes import coin
     from rater.routes.api import currency_api
+    from rater.routes.api import coin_api
 
-    app.register_blueprint(currency.bp)
-    app.register_blueprint(currency_api.bp_api)
+    app.register_blueprint(main.bp_main)
+    app.register_blueprint(currency.bp_currency)
+    app.register_blueprint(coin.bp_coin)
+
+    app.register_blueprint(currency_api.bp_currency_api)
+    app.register_blueprint(coin_api.bp_coin_api)
 
     with app.app_context():
         from .models.currency import Currency
+        from .models.coin import Coin
 
         db.create_all()
 

@@ -8,28 +8,41 @@ body {
   color: #eee;
 }
 
-div.hero-currency {
+@font-face {
+  font-family: Gandom;
+  src: url('../fonts/persian/gandom/Gandom.eot');
+  src: url('../fonts/persian/gandom/Gandom.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/persian/gandom/Gandom.woff') format('woff'),
+       url('../fonts/persian/gandom/Gandom.ttf') format('truetype');
+  font-weight: normal;
+}
+
+div.hero-rate {
   padding-top: 5rem;
   background-color: #18171b !important;
 }
 
-div.hero-currency img.moxart-rater-logo {
+div.hero-rate img.moxart-rater-logo {
   width: 10% !important;
   margin-bottom: 1.75rem !important;
 }
 
-div.hero-currency h1 {
+div.hero-rate h1 {
   font-size: 2.5rem !important;
   text-shadow: 1px 1px 0 #000;
 }
 
-div.hero-currency p.description {
+div.hero-rate p.description {
   color: #777;
   text-shadow: 1px 1px 0 #000;
 }
 
-div.hero-currency .buttons {
+div.hero-rate .buttons {
   margin-top: 1.75rem;
+}
+
+div.hero-rate .moxart-button {
+  margin: 0 .65rem;
 }
 
 .moxart-button:hover,
@@ -42,9 +55,9 @@ div.hero-currency .buttons {
 .btn-api {
   position: relative;
   background: none;
-  color: #ffe045;
+  color: #ffd500;
   text-decoration: none;
-  border: 1px solid #ffe045;
+  border: 1px solid #ffd500;
   padding: 0.5em 1em;
   font-weight: 300;
 
@@ -90,40 +103,41 @@ div.hero-currency .buttons {
   left: 80%;
 }
 
+table.table-rate td.live_price {
+  color: #00f2fe;
+}
 
-table.table-currency {
+table.table-rate {
   color: #777 !important;
   text-shadow: 1px 1px 0 #000;
 }
 
-table.table-currency td.id {
+table.table-rate td.id {
   font-weight: 600;
 }
 
-table.table-currency td.state {
-  font-weight: 600;
-}
-
-table.table-currency td.live_price {
-  color: #2af598;
-}
-
-table.table-currency thead {
+table.table-rate thead {
   color: #fff !important;
-
 }
 
-table.table-currency th,
-table.table-currency td {
+table.table-rate th,
+table.table-rate td {
   text-transform: uppercase;
   border: none !important;
 }
 
+table.table-coin td.name {
+  font-family: 'Gandom', sans-serif !important;
+}
+
+div.more-rates {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
 
 .btn-more-rates {
   color: #777;
   border-color: #777;
-  margin-top: 1.75rem;
   text-shadow: 1px 1px 0 #000;
 
   -webkit-box-shadow: 1px 1px 0 #000;
@@ -149,21 +163,22 @@ table.table-currency td {
 }
 
 @media (max-width: 768px) {
-  div.hero-currency img.moxart-rater-logo {
+  div.hero-rate img.moxart-rater-logo {
     width: 30% !important;
     margin-bottom: 1.75rem !important;
   }
 
-  div.hero-currency h1 {
+  div.hero-rate h1 {
     font-size: 1.75rem !important;
     text-shadow: 1px 1px 0 #000;
   }
 
-  div.hero-currency .buttons {
+  div.hero-rate .buttons {
     margin-top: .75rem !important;
   }
 
-  div.hero-currency .moxart-button {
+  div.hero-rate .moxart-button {
     font-size: .95rem !important;
+    margin: .45rem .45rem .65rem .45rem !important;
   }
 }
